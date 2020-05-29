@@ -10,7 +10,7 @@ def logo(*args):
     print('\n\n\t\tTic-Tac-Toe')
     print('\t\t\b*************\n')
     print('''
-         _______ _______ _______
+         _______________________
         |       |       |       |
         |   {}   |   {}   |   {}   |
         |_______|_______|_______|
@@ -37,39 +37,41 @@ def game():
     
     logo(*remote)
 
-    def checker(plr, n=''):
+    def processor(plr, plno=''):
         final = ''
         chances = ['048', '246', '012', '345', '678', '036', '147', '258']
-        '''
-        0 1 2
-        3 4 5
-        6 7 8 
-        '''
+        pos = input('  Player {} can choose his position : '.format(plno))
+        if pos.isnumeric():
+            pos = int(pos)
+            if pos in [x for x in remote]:
+                remote.insert(remote.index(pos), plr)
+                remote.remove(pos)
+                logo(*remote)
+            else:
+                print('  Invalid Entry . ! You lost your chance.\n')
+        
+        else:
+            print('  Invalid Entry . ! You lost your chance.\n')
+        
         for i in range(len(remote)):
             if remote[i] == plr:
                 final = final + str(i)
             else:
                 pass
-        print(final)
         for chance in chances:
-            if chance.split() in final.split():
-                print('Congrats ! Player {} have won the match.'.format(n))
+            if set(chance) <= set(final):
+                print('  Congrats ! Player {} have won the match.\n'.format(plno))
                 exit()
             
 
     for control in range(1,10):
         if control%2 == 0:
-            pos1 = int(input('\n  Player 1 can choose his position : '))
-            remote.insert(remote.index(pos1), plr1)
-            remote.remove(pos1)
-            logo(*remote)
-            checker(plr1, 1)
+            processor(plr1, 1)
 
         else:
-            pos2 = int(input('\n  Player 2 can choose his position : '))
-            remote.insert(remote.index(pos2), plr2)
-            remote.remove(pos2)
-            logo(*remote)
-            checker(plr2, 2)
+            processor(plr2, 2)
+    
+    logo(*remote)
+    print('  Draw Match !\n')
 
 game()
