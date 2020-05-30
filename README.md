@@ -1,2 +1,2 @@
-# Python-Bootcamp
-To complete Python Bootcamp : Zero to Hero Course Projects
+# Getting-Started-with-Django
+Web development with Python
