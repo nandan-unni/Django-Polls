@@ -1,0 +1,8 @@
+<title>Polls | {{ question.id }}</title>
+<br/>
+<center><h1>{{ question }}</h1></center>
+<ul>
+    {% for choice in question.choice_set.all %}
+        <li style="margin-left: 50px;">{{ choice.choice_text }}</li>
+    {% endfor %}
+</ul>

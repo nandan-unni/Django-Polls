@@ -1,0 +1,17 @@
+<title>Polls | Home</title>
+<h1><center>POLLS</center></h1>
+<br/><br/>
+<div>
+    <hr><br/>
+    {% if questions %}
+        {% for question in questions %}
+            <li style="margin-left: 50px;"><b>
+                <a href="{% url 'detail' question.id %}" style="text-decoration: none;">
+                {{ question.question_text }}</a>
+            </li></b>
+            <br/><hr><br/>
+        {% endfor %}
+    {% else %}
+        <p>No polls are available.</p>
+    {% endif %}
+</div>
