@@ -7,7 +7,7 @@ from .models import Choice, Question
 
 def index(request):
     questions = Question.objects.order_by('-pub_date')
-    return render(request, 'polls/index.html', { 'questions' : questions })
+    return render(request, 'polls/index.html', {'questions' : questions})
 
 def detail(request, question_id):
     try:

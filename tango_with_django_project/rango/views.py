@@ -2,7 +2,8 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 def index(request):
-    return HttpResponse("Index page loaded <br/> <a href = '\\about'>About</a>")
+    ndk = 'This is the index page'
+    return render(request, 'rango/index.html', {'message': ndk})
 
 def about(request):
-    return HttpResponse("This page gives the information about Rango App. <br/> <a href='\\'>Home</a>")
+    return render(request, 'rango/about.html', {'message': 'This is the about page'})
