@@ -1,0 +1,14 @@
+{% extends "polls/base.html" %}
+
+{% block content %}
+    <div class="qn"><h1>{{ question }}</h1><br/><br/>
+    {% for choice in question.choice_set.all %}
+        {{ choice.choice_text }} &nbsp; 
+        <i class="material-icons">label</i> &nbsp; {{ choice.no_of_votes }} vote{{ choice.no_of_votes|pluralize }}<br /><br />
+    {% endfor %} <br/>
+    <div class="result-nav">
+    <a href="{% url 'vote' question.id %}" style="text-decoration: none;" class="pad">Vote again ?</a> &nbsp; &nbsp; &nbsp; 
+    <a href="{% url 'feed' %}" style="text-decoration: none;" class="pad">Home</a>
+    </div>
+    </div>
+{% endblock %}

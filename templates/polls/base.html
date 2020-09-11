@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/polls/styles.css' %}" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+
+<body>
+    <div class="header">
+        <h2><i class="material-icons">bar_chart</i> <d>Django</d> Polls <d><i class="material-icons">bar_chart</i></d></h2>
+    </div><br />
+    {% block content %}
+    {% endblock %}
+    <script src="{% static 'js/polls/app.js' %}"></script>
+</body>
+
+</html>
